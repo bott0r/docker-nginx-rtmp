@@ -1,8 +1,9 @@
 FROM gliderlabs/alpine:latest
+ENV RTMPID 1101
 
 # Create nginx user
-RUN addgroup -g 1000 nginx && \
-    adduser  -G nginx -u 1000 -S nginx
+RUN addgroup -g ${RTMPID} nginx && \
+    adduser  -G nginx -u ${RTMPID}  -S nginx
 
 # Build tini and nginx-rtmp from source
 RUN apk update \
@@ -37,7 +38,7 @@ RUN apk update \
 
 # Install static ffmpeg build
 RUN cd /opt \
-    && wget -q -O- "http://johnvansickle.com/ffmpeg/builds/ffmpeg-git-64bit-static.tar.xz" | tar -xJv \
+    && wget -q -O- "https://johnvansickle.com/ffmpeg/releases/ffmpeg-release-64bit-static.tar.xz" | tar -xJv \
     && mv ffmpeg*/* /usr/local/bin \
     && rm -rf /opt/ffmpeg*
 
