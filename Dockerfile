@@ -1,10 +1,10 @@
 FROM gliderlabs/alpine:latest
 
-ENV RTMPUID 1101
+ENV RTMPID 1101
 
 # Create nginx user
-RUN addgroup -g ${RTMPUID} nginx && \
-    adduser  -G nginx -u ${RTMPUID} -S nginx
+RUN addgroup -g ${RTMPID} nginx && \
+    adduser  -G nginx -u ${RTMPID} -S nginx
 
 # Build tini and nginx-rtmp from source
 RUN apk update \
