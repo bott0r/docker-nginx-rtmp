@@ -1,6 +1,7 @@
 Nginx-rtmp server with ffmpeg tools
 ===================================
 
+Container modified to allow for different user and group on docker with the ENV RTMPID
 This container provides a [nginx-rtmp](https://github.com/arut/nginx-rtmp-module) server listening on ports **8080** (http) and **1935** (RTMP). The container includes the ffmpeg binaries.
 
 Usage
