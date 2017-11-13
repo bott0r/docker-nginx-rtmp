@@ -36,13 +36,13 @@ RUN apk update \
     && chown -R nginx:nginx /opt/nginx /opt/rtmp
 
 # Install static ffmpeg build
-RUN    cd /opt \
+RUN cd /opt \
     && wget -q -O- "http://johnvansickle.com/ffmpeg/builds/ffmpeg-git-64bit-static.tar.xz" | tar -xJv \
     && mv ffmpeg*/* /usr/local/bin \
     && rm -rf /opt/ffmpeg*
 
 # forward request and error logs to docker log collector
-RUN    ln -sf /dev/stdout /opt/nginx/logs/access.log \
+RUN ln -sf /dev/stdout /opt/nginx/logs/access.log \
     && ln -sf /dev/stderr /opt/nginx/logs/error.log
 
 # Recordings, bodies and other config files to be stored here
