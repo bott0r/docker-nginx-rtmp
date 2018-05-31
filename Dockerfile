@@ -36,7 +36,7 @@ RUN apk update \
     && rm -rf /var/cache/apk/* /var/tmp/* /tmp/* /opt/src \
     && chown -R nginx:nginx /opt/nginx /opt/rtmp
 
-# Install static ffmpeg build
+# Install static ffmpeg build lets hope its ffmpeg 4.0
 RUN cd /opt \
     && wget -q -O- "https://johnvansickle.com/ffmpeg/releases/ffmpeg-release-64bit-static.tar.xz" | tar -xJv \
     && mv ffmpeg*/* /usr/local/bin \
